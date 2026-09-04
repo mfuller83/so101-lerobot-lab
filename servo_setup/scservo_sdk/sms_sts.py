@@ -96,7 +96,12 @@ class sms_sts(protocol_packet_handler):
         return self.action(BROADCAST_ID)
 
     def WheelMode(self, scs_id):
+        """Change mode to continuous rotation"""
         return self.write1ByteTxRx(scs_id, SMS_STS_MODE, 1)
+
+    def PositionMode(self, scs_id):
+        """Change mode to positioning"""
+        return self.write1ByteTxRx(scs_id, SMS_STS_MODE, 0)
 
     def WriteSpec(self, scs_id, speed, acc):
         speed = self.scs_toscs(speed, 15)
@@ -108,4 +113,10 @@ class sms_sts(protocol_packet_handler):
 
     def unLockEprom(self, scs_id):
         return self.write1ByteTxRx(scs_id, SMS_STS_LOCK, 0)
+
+    def EnableTorque(self, scs_id):
+        return self.write1ByteTxRx(scs_id,SMS_STS_TORQUE_ENABLE, 1)
+
+    def DisableTorque(self, scs_id):
+        return self.write1ByteTxRx(scs_id, SMS_STS_TORQUE_ENABLE, 0)
 

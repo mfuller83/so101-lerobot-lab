@@ -30,4 +30,38 @@ set this as the device name
 DEVICENAME              = '/dev/cu.usbmodem5B790156211'  
 ```
 
+basic setup 
+
+```py
+# Import servo libraries
+from scservo_sdk import * 
+
+# Setup communication settings
+SCS_ID = 1  # which servo 
+BAUDRATE = 1000000
+DEVICENAME = '/dev/cu.usbmodem5B790156211'
+
+# Create communivation objects
+portHandler = PortHandler(DEVICENAME)
+packetHandler = sms_sts(portHandler)
+
+# Open and configure the serial connection
+portHandler.openPort()
+portHandler.setBaudRate(BAUDRATE)
+
+```
+
+positioning move
+
+```py
+# Set up servo setting
+SCS_MOVING_SPEED = 2400
+SCS_MOVING_ACC = 50
+
+target_pos = 2000
+
+packetHandler.WritePosEx(SCS_ID,target_pos,SCS_MOVING_SPEED,SCS_MOVING_ACC)
+
+```
+
 
