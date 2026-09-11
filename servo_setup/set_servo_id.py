@@ -3,8 +3,7 @@
 from scservo_sdk import * 
 
 old_id = 1
-new_id = 2
-
+new_id = 6
 
 
 # Setup communication settings

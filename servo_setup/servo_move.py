@@ -46,14 +46,12 @@ packetHandler.WriteSpec(
 )"""
 
 
-for i in range(1,4000, 50):
-    print(i)
-    packetHandler.WritePosEx(1, i, 2400, 50)
-    packetHandler.WritePosEx(2,(4000-i),2400,50)
-    sleep(0.1)
+
+packetHandler.WritePosEx(1, , 2400, 50)
 
 
 
-#packetHandler.EnableTorque(1,1)
+
+#packetHandler.DisableTorque(6)
 
 

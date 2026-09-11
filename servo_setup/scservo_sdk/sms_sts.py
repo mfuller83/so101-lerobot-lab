@@ -70,6 +70,10 @@ class sms_sts(protocol_packet_handler):
         scs_present_position, scs_comm_result, scs_error = self.read2ByteTxRx(scs_id, SMS_STS_PRESENT_POSITION_L)
         return self.scs_tohost(scs_present_position, 15), scs_comm_result, scs_error
 
+    def ReadTemp(self, scs_id):
+        scs_present_temp, scs_comm_result, scs_error = self.read2ByteTxRx(scs_id, SMS_STS_PRESENT_TEMPERATURE)
+        return self.scs_tohost(scs_present_temp, 15), scs_comm_result, scs_error
+
     def ReadSpeed(self, scs_id):
         scs_present_speed, scs_comm_result, scs_error = self.read2ByteTxRx(scs_id, SMS_STS_PRESENT_SPEED_L)
         return self.scs_tohost(scs_present_speed, 15), scs_comm_result, scs_error
